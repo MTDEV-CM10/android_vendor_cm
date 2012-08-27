@@ -54,11 +54,11 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     vendor/cm/prebuilt/common/bin/modelid_cfg.sh:system/bin/modelid_cfg.sh
 
-#PRODUCT_COPY_FILES +=  \
-#    vendor/cm/proprietary/RomManager.apk:system/app/RomManager.apk \
-#    vendor/cm/proprietary/Term.apk:system/app/Term.apk \
-#    vendor/cm/proprietary/lib/armeabi/libjackpal-androidterm4.so:system/lib/libjackpal-androidterm4.so \
-#    vendor/cm/prebuilt/common/apps/Superuser.apk:system/app/Superuser.apk
+PRODUCT_COPY_FILES +=  \
+    vendor/cm/proprietary/RomManager.apk:system/app/RomManager.apk \
+    vendor/cm/proprietary/Term.apk:system/app/Term.apk \
+    vendor/cm/proprietary/lib/armeabi/libjackpal-androidterm4.so:system/lib/libjackpal-androidterm4.so \
+    vendor/cm/prebuilt/common/apps/Superuser.apk:system/app/Superuser.apk
 
 # Bring in camera effects
 PRODUCT_COPY_FILES +=  \
@@ -169,7 +169,7 @@ endif
 ifdef CM_RELEASE
     CM_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(PRODUCT_VERSION_MAINTENANCE)$(PRODUCT_VERSION_DEVICE_SPECIFIC)-$(CM_BUILD)
 else
-    CM_VERSION := $(PRODUCT_VERSION_MAJOR)-$(shell date -u +%Y%m%d)-$(CM_BUILDTYPE)-$(CM_BUILD)$(CM_EXTRAVERSION)
+    CM_VERSION := $(PRODUCT_VERSION_MAJOR)-$(shell date +%Y%m%d)
 endif
 
 PRODUCT_PROPERTY_OVERRIDES += \
